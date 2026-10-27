@@ -1,0 +1,32 @@
+name: Front Panel
+version: "1.0.0"
+url: https://github.com/SeNcE-MS/front-panel-addon
+slug: front_panel
+description: TOSS FRONT 단말기로 HA를 제어하는 가장 쉬운 솔루션
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: auto
+init: false
+ingress: true
+ingress_port: 8099
+ingress_entry: editor
+panel_icon: mdi:tablet-dashboard
+panel_title: Front Panel
+homeassistant_api: true
+hassio_api: false
+host_network: false
+apparmor: true
+ports:
+  8099/tcp: 18764
+ports_description:
+  8099/tcp: 내부망 표시 화면 (IP 제한·선택적 표시 인증)
+options:
+  viewer_ip: ""
+  viewer_password: ""
+  editor_password: ""
+schema:
+  viewer_ip: str
+  viewer_password: password
+  editor_password: password

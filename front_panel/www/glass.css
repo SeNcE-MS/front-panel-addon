@@ -1,0 +1,41 @@
+/* Reference-matched neutral glass. Static reflections without live blur; icon motion respects existing controls. */
+:root[data-theme=glass]{--glass-off:rgba(255,255,255,.12);--glass-edge:rgba(255,255,255,.60);--glass-rim:rgba(255,255,255,.88);--glass-top:#ffffff7d;--glass-shadow:#14161312;--glass-tab:#ffffffe0;--glass-reflection:linear-gradient(118deg,#ffffff52 0%,#ffffff21 43%,#ffffff0b 100%);--glass-surface:linear-gradient(118deg,#ffffff65,#ffffff32 45%,#ffffff1a);--glass-depth:inset 0 1px 1px #ffffff6b,inset 0 -1px 1px #34383210,0 6px 18px #1517130a;--glass-radius:calc(var(--radius,25px) + 5px)}
+:root[data-theme=glass][data-mode=dark]{--glass-off:rgba(255,255,255,.045);--glass-edge:rgba(255,255,255,.23);--glass-rim:rgba(255,255,255,.42);--glass-top:#ffffff27;--glass-shadow:#0000001a;--glass-tab:#ffffff1c;--glass-reflection:linear-gradient(118deg,#ffffff24 0%,#ffffff10 43%,#ffffff08 100%);--glass-surface:linear-gradient(118deg,#ffffff24,#ffffff12 45%,#ffffff0c);--glass-depth:inset 0 1px 1px #ffffff21,inset 0 -1px 1px #00000030,0 6px 18px #0000000d}
+:root[data-theme=glass] body{background-color:var(--bg);background-image:radial-gradient(ellipse at 98% 0%,#f3d6e1 0%,transparent 63%),radial-gradient(ellipse at 0% 100%,#d5e8f5 0%,transparent 65%),radial-gradient(ellipse at 5% 0%,#ded8ee 0%,transparent 61%),linear-gradient(115deg,#dce4f2,#e7e6f0 50%,#f0dfe8);background-repeat:no-repeat;background-size:100% 100%}
+:root[data-theme=glass][data-mode=dark] body{background-image:radial-gradient(ellipse at 0% 0%,#a7afb929,transparent 58%),radial-gradient(ellipse at 0% 100%,#647b6d1c,transparent 50%),linear-gradient(135deg,#25272d,#191b22 60%,#14161c)}
+:root[data-theme=glass] *, :root[data-theme=glass] *::before, :root[data-theme=glass] *::after{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;filter:none!important;transition:none!important;will-change:auto!important}
+:root[data-theme=glass] .device-card{background-color:var(--glass-off);background-image:var(--glass-reflection);border-color:var(--glass-edge);border-top-color:var(--glass-rim);border-radius:var(--glass-radius);box-shadow:var(--glass-depth);transform:none}
+:root[data-theme=glass] .device-card:active{transform:none}
+:root[data-theme=glass] .device-card[aria-pressed=true]{background-color:#ffffff;background-image:linear-gradient(135deg,#ffffff,#f1f2ef);border-color:#ffffffd9;border-top-color:#fff;color:var(--on-active);box-shadow:inset 0 1px 1px #fff,inset 0 -1px 2px #a0a59e21,0 5px 14px #00000018}
+:root[data-theme=glass] .device-card .icon{background:#ffffff0d;border:1px solid #ffffff28;color:var(--muted);box-shadow:inset 0 1px 0 #ffffff19;border-radius:50%}
+:root[data-theme=glass] .device-card[aria-pressed=true] .icon{background:var(--icon-bg-on);border-color:#ffffffb3;color:var(--icon-on);box-shadow:inset 0 1px 0 #fff}
+:root[data-theme=glass] .device-card[aria-pressed=true] .device-label{color:var(--on-active)}
+:root[data-theme=glass] .device-card[aria-pressed=true] .device-state{color:#606460}
+:root[data-theme=glass] .device-card[aria-pressed=true] .switch{background:var(--switch-on);box-shadow:inset 0 1px 2px #165b3c18}
+:root[data-theme=glass] .device-card .switch span{background:var(--thumb);box-shadow:0 1px 4px #0002}
+:root[data-theme=glass] .weather-card,:root[data-theme=glass] .laundry-card,:root[data-theme=glass] .todo-group,:root[data-theme=glass] .sensor-row,:root[data-theme=glass] .info-list{background-color:var(--glass-off);background-image:var(--glass-surface);border-color:var(--glass-edge);border-top-color:var(--glass-rim);border-radius:var(--glass-radius);box-shadow:var(--glass-depth)}
+:root[data-theme=glass] .badge,:root[data-theme=glass] .brand-mark,:root[data-theme=glass] .mode-control{background-color:var(--glass-off);background-image:var(--glass-reflection);border-color:var(--glass-edge);border-top-color:var(--glass-rim);box-shadow:inset 0 1px 0 var(--glass-top)}
+:root[data-theme=glass] .room-tabs{background-color:var(--glass-off);background-image:var(--glass-reflection);border:1px solid var(--glass-edge);border-top-color:var(--glass-rim);border-radius:28px;padding:4px;margin-top:24px;box-shadow:var(--glass-depth)}
+:root[data-theme=glass] .room-tabs button[aria-selected=true]{background:var(--glass-tab);color:var(--accent);box-shadow:inset 0 1px 0 var(--glass-top),0 2px 5px var(--glass-shadow)}
+:root[data-theme=glass] nav{bottom:16px;bottom:max(16px,env(safe-area-inset-bottom));width:min(520px,calc(100% - 48px));border:1px solid var(--glass-edge);border-top-color:var(--glass-rim);border-radius:22px;padding:4px;background-color:var(--glass-off);background-image:var(--glass-reflection);box-shadow:var(--glass-depth),0 10px 26px #0000001c}
+:root[data-theme=glass] .nav-item{border-radius:18px;min-height:44px;padding:8px 10px}
+:root[data-theme=glass] .nav-item.active{background:var(--glass-tab);color:var(--accent);box-shadow:inset 0 1px 0 var(--glass-top)}
+:root[data-theme=glass] .home-chip{background:var(--glass-tab);border-color:var(--glass-edge);color:var(--text)}
+/* Existing editor preview tile shows the same grey material before selection. */
+.theme-tile[data-theme=glass] .theme-preview{background:linear-gradient(118deg,var(--mini-surface),var(--mini-background));border-top-color:#ffffff70}
+.theme-tile[data-theme=glass] .mini-card{background:linear-gradient(118deg,#ffffff28,#ffffff08);border-color:#ffffff40;box-shadow:inset 0 1px 0 #ffffff30}
+.theme-tile[data-theme=glass] .mini-card.on{background:#fff;border-color:#fff}
+.theme-tile[data-theme=glass] .mini-card.on .mini-dot{background:#343638}
+.theme-tile[data-theme=glass] .mini-card.on .mini-switch{background:#288955}
+:root[data-theme=glass] .page.enter{animation:none}
+/* Coloured weather in BOTH modes; no grey cloud or badge. */
+:root[data-theme=glass] .weather-symbol{--weather-sun:#ffc75a;--weather-cloud:#91c9f0;--weather-rain:#52aefb;--weather-snow:#b9eaff;--weather-moon:#bfa5ff;--weather-stars:#ffdb7a;--weather-wind:#71d9b4;--weather-fog:#a1c8df;--weather-bolt:#ffd366;--weather-unknown:#87aed0}
+:root[data-theme=glass] .weather-orb{background:linear-gradient(145deg,#badaff50,#d4c0ff24);border:1px solid var(--glass-edge)}
+/* Let the actual page background show through the editor, not opaque grey palette surfaces. */
+:root[data-theme=glass] .editor section,:root[data-theme=glass] .room-editor,:root[data-theme=glass] .card-editor,:root[data-theme=glass] .room-sensors,:root[data-theme=glass] .home-connection-group,:root[data-theme=glass] .editor footer,:root[data-theme=glass] .picker-box{background-color:var(--glass-off);background-image:var(--glass-surface);border-color:var(--glass-edge);border-top-color:var(--glass-rim);box-shadow:var(--glass-depth)}
+:root[data-theme=glass] .editor input:not([type=checkbox]),:root[data-theme=glass] .editor select,:root[data-theme=glass] .theme-tile{background-color:var(--glass-off);background-image:var(--glass-reflection);border-color:var(--glass-edge)}
+:root[data-theme=glass] .editor footer{background-color:rgba(245,242,249,.9);box-shadow:var(--glass-depth),0 10px 26px #0000001c}
+:root[data-theme=glass][data-mode=dark] .editor footer{background-color:rgba(36,39,47,.92)}
+:root[data-theme=glass] .editor button:not([type=submit]):not([aria-selected=true]),:root[data-theme=glass] .editor .file,:root[data-theme=glass] .entity-result{background-color:var(--glass-off);background-image:var(--glass-reflection);border-color:var(--glass-edge)}
+:root[data-theme=glass] .editor-room-tabs{background-color:var(--glass-off);background-image:var(--glass-reflection);border:1px solid var(--glass-edge);border-radius:18px;padding:6px;}
+:root[data-theme=glass][data-mode=light] .theme-tile[data-theme=glass] .theme-preview{background:linear-gradient(120deg,#dae6f1,#e9ddeb)}
