@@ -3,6 +3,10 @@
 토스 프론트 등 터치 패널에서 사용하는 Home Assistant 전용 화면입니다.
 방·기기 카드·센서·날씨를 연결하고, 글라스 등 7개 테마를 선택할 수 있습니다.
 
+![토스 프론트에 적용한 Front Panel의 글라스·블루 다크·민트·라벤더 테마](https://raw.githubusercontent.com/SeNcE-MS/front-panel-addon/main/front_panel/images/front-panel-four-themes.jpg)
+
+왼쪽부터 **글라스 · 블루 다크 · 민트 · 라벤더** 테마입니다. 실제 Front Panel UI와 예시 데이터를 사진에 합성한 이미지입니다.
+
 ## 설치 방법
 
 1. HA **설정 → 앱 → 앱 설치 → ⋮ → 저장소**를 엽니다.
