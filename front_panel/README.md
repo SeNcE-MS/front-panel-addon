@@ -5,8 +5,6 @@
 
 ![토스 프론트에 적용한 Front Panel의 글라스·블루 다크·민트·라벤더 테마](https://raw.githubusercontent.com/SeNcE-MS/front-panel-addon/main/front_panel/images/front-panel-four-themes.jpg)
 
-왼쪽부터 **글라스 · 블루 다크 · 민트 · 라벤더** 테마입니다. 실제 Front Panel UI와 예시 데이터를 사진에 합성한 이미지입니다.
-
 ## 설치 방법
 
 1. HA **설정 → 앱 → 앱 설치 → ⋮ → 저장소**를 엽니다.
