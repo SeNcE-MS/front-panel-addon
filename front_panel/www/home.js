@@ -84,8 +84,8 @@ function render(target,home,states,data,error,haError,now=Date.now()){
  }
  if(home.weather.enabled){target.append(renderWeather(home,states,haError));cards++;}
  if(home.todos.enabled){const group=el('article','home-card todo-group'),title=el('div','home-card-head');title.append(el('h2',null,'할 일 목록'),el('span','home-muted','진행 중인 항목'));group.append(title);for(const list of home.todos.lists){
-  const found=data?.todos?.find(item=>item.entity_id===list.entity_id&&item.label===list.label),items=found?.items||[];
-  const card=el('div','todo-section');card.dataset.todoLabel=list.label;const head=el('div','home-card-head');head.append(el('h2',null,list.label),el('span','home-chip',found&&!found.error&&!error?items.length+'개 진행 중':'상태 확인'));card.append(head);
+  const found=data?.todos?.find(item=>item.entity_id===list.entity_id),items=found?.items||[],label=states[list.entity_id]?.name||list.entity_id||'미연결';
+  const card=el('div','todo-section');card.dataset.todoLabel=label;const head=el('div','home-card-head');head.append(el('h2',null,label),el('span','home-chip',found&&!found.error&&!error?items.length+'개 진행 중':'상태 확인'));card.append(head);
   if(error||found?.error||!found){card.append(el('p','home-muted',error||found?.error||'목록을 읽고 있습니다…'));}
   else if(!items.length){card.append(el('p','home-muted','진행 중인 항목이 없습니다.'));}
   else{const ul=el('ul','home-tasks');for(const item of items){const li=el('li');li.append(el('span','task-dot','○'),el('span',null,item.summary));if(item.due)li.append(el('small','home-muted',item.due));ul.append(li);}card.append(ul);}
