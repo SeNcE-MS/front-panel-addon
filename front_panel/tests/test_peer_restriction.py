@@ -3,7 +3,7 @@ from pathlib import Path
 import server
 class PeerRestrictionTest(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory();self.s=server.create_server(('127.0.0.1',0),trusted_peers={'127.0.0.3'},data_dir=Path(self.tmp.name),passwords={'editor':'editor-test-password'},viewer_ip='127.0.0.1');threading.Thread(target=self.s.serve_forever,daemon=True).start()
+  self.tmp=tempfile.TemporaryDirectory();self.s=server.create_server(('127.0.0.1',0),trusted_peers={'127.0.0.3'},data_dir=Path(self.tmp.name),viewer_ip='127.0.0.1');threading.Thread(target=self.s.serve_forever,daemon=True).start()
  def tearDown(self):self.s.shutdown();self.s.server_close();self.tmp.cleanup()
  def request(self,path='/',peer='127.0.0.1',method='GET',headers=None):
   c=http.client.HTTPConnection('127.0.0.1',self.s.server_port,source_address=(peer,0));c.request(method,path,headers=headers or {});r=c.getresponse();status=r.status;r.read();c.close();return status

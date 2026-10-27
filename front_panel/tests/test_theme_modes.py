@@ -19,7 +19,7 @@ class ThemeModesTest(unittest.TestCase):
    with self.assertRaises(ValueError):validate(c)
  def test_viewer_mode_toggle_does_not_overwrite_rooms(self):
   with tempfile.TemporaryDirectory() as tmp:
-   srv=server.create_server(('127.0.0.1',0),trusted_peers={'127.0.0.1'},data_dir=Path(tmp));threading.Thread(target=srv.serve_forever,daemon=True).start();base=f'http://127.0.0.1:{srv.server_port}'
+   srv=server.create_server(('127.0.0.1',0),trusted_peers={'127.0.0.1'},viewer_ip='127.0.0.1',data_dir=Path(tmp));threading.Thread(target=srv.serve_forever,daemon=True).start();base=f'http://127.0.0.1:{srv.server_port}'
    def request(path,body=None,method=None,headers=None):
     req=urllib.request.Request(base+path,data=None if body is None else json.dumps(body).encode(),method=method,headers=headers or {'Origin':base,'Content-Type':'application/json'});return json.load(urllib.request.urlopen(req))
    try:

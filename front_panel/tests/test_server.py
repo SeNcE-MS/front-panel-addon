@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 class ServerTest(unittest.TestCase):
     def test_demo_serves_without_ha_credentials(self):
         import server
-        srv = server.create_server(('127.0.0.1', 0), trusted_peers={'127.0.0.1'})
+        srv = server.create_server(('127.0.0.1', 0), trusted_peers={'127.0.0.1'},viewer_ip='127.0.0.1')
         threading.Thread(target=srv.serve_forever, daemon=True).start()
         try:
             with urllib.request.urlopen(f'http://127.0.0.1:{srv.server_port}/') as response:
@@ -22,7 +22,7 @@ class ServerTest(unittest.TestCase):
 
     def test_local_korean_font_available(self):
         import server
-        srv = server.create_server(('127.0.0.1', 0), trusted_peers={'127.0.0.1'})
+        srv = server.create_server(('127.0.0.1', 0), trusted_peers={'127.0.0.1'},viewer_ip='127.0.0.1')
         threading.Thread(target=srv.serve_forever, daemon=True).start()
         try:
             with urllib.request.urlopen(f'http://127.0.0.1:{srv.server_port}/panel-ko.ttf') as response:
@@ -40,14 +40,14 @@ class ServerTest(unittest.TestCase):
             req = urllib.request.Request(f'http://127.0.0.1:{srv.server_port}/api/config', headers={'X-Forwarded-For':'172.30.32.2'})
             with self.assertRaises(urllib.error.HTTPError) as ctx:
                 urllib.request.urlopen(req)
-            self.assertEqual(ctx.exception.code, 401)
+            self.assertEqual(ctx.exception.code, 403)
         finally:
             srv.shutdown()
             srv.server_close()
 
     def test_unknown_and_traversal_paths_rejected(self):
         import server
-        srv = server.create_server(('127.0.0.1', 0), trusted_peers={'127.0.0.1'})
+        srv = server.create_server(('127.0.0.1', 0), trusted_peers={'127.0.0.1'},viewer_ip='127.0.0.1')
         threading.Thread(target=srv.serve_forever, daemon=True).start()
         try:
             for path in ['/../server.py', '/%2e%2e/server.py', '/data/options.json', '/api/control']:

@@ -21,12 +21,8 @@ apparmor: true
 ports:
   8099/tcp: 18764
 ports_description:
-  8099/tcp: 내부망 표시 화면 (IP 제한·선택적 표시 인증)
+  8099/tcp: 내부망 표시 화면 (지정 단말 IP만 허용)
 options:
   viewer_ip: ""
-  viewer_password: ""
-  editor_password: ""
 schema:
   viewer_ip: str
-  viewer_password: password
-  editor_password: password
