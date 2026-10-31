@@ -1,0 +1,35 @@
+name: Front Panel Beta
+version: "1.1.0-beta.29"
+slug: front_panel_beta
+description: Music Assistant 시험 베타
+stage: experimental
+arch:
+  - amd64
+  - aarch64
+startup: application
+boot: manual
+init: false
+ingress: true
+ingress_port: 8099
+ingress_entry: editor
+panel_icon: mdi:music-box-multiple
+panel_title: Front Panel Beta
+homeassistant_api: true
+hassio_api: true
+hassio_role: default
+host_network: false
+apparmor: true
+ports:
+  8099/tcp: 18765
+ports_description:
+  8099/tcp: 베타 내부망 표시 화면 (지정 IP 또는 지정 내부망 허용, 인터넷 공개 금지)
+options:
+  viewer_ip: ""
+  viewer_network: ""
+schema:
+  viewer_ip: str
+  viewer_network: str
+  music_assistant_url: str?
+  music_assistant_ingress_path: str?
+  music_api_url: str?
+  music_api_token: password?

@@ -24,6 +24,14 @@
    http://HA_IP:18764/
    ```
 
+## 베타
+
+**Front Panel Beta — Music Assistant 시험 베타**
+
+같은 저장소에서 **Front Panel Beta**를 선택해 별도로 설치할 수 있습니다. 정식 버전은 그대로 유지됩니다.
+
+[베타 설치·사용 안내](front_panel_beta/DOCS.md)
+
 ## 사용 안내
 
 - **편집:** HA에서 **Web UI 열기**로 접속합니다. HA 인증을 사용합니다.
